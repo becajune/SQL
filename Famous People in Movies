@@ -1,4 +1,4 @@
-*Created table with 6 actor/actresses popular in 2022
+##Created table with 6 actor/actresses popular in 2022
 
 CREATE TABLE persons (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -13,7 +13,7 @@ INSERT INTO persons (fullname, age, initials) VALUES ("Margot Robbie", 32, "MR")
 INSERT INTO persons (fullname, age, initials) VALUES ("Tom Holland", 26, "TH");
 INSERT INTO persons (fullname, age, initials) VALUES ("Emma Roberts", 31, "ER");
 
-*Created table showing actor/actresses in tbale above recent movies
+##Created table showing actor/actresses in tbale above recent movies
 
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,26 +40,22 @@ INSERT INTO movies (initials, title, year, length) VALUES ("ER", "Uglydolls", 20
 INSERT INTO movies (initials, title, year, length) VALUES ("ER", "Paradise Hills", 2019, 95);
 INSERT INTO movies (initials, title, year, length) VALUES ("ER", "Holidate", 2020, 104);
 
-*Query to find average age
-
+##Query to find average age
 SELECT AVG(age) FROM persons;
 
-*Query to find amount of movies per person
-
+##Query to find amount of movies per person
 SELECT initials, COUNT(*) AS movies_made
 FROM movies
 GROUP BY initials;
 
-*Join to find movies made per year
-
+##Join to find movies made per year
 SELECT persons.fullname, movies.title, movies.year
 FROM persons
 JOIN movies
 ON persons.initials=movies.initials
 ORDER BY year;
 
-* Join to find movies starting with "The"
-
+##Join to find movies starting with "The"
 SELECT persons.fullname, movies.title
 FROM persons
 JOIN movies
@@ -67,8 +63,7 @@ ON persons.initials=movies.initials
 WHERE movies.title LIKE "the%"
 ORDER BY title;
 
-*Query using CASE in regards to movie length
-
+##Query using CASE in regards to movie length
 SELECT COUNT(*),
     CASE
         WHEN length > 120 THEN "long"
