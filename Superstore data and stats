@@ -1,4 +1,4 @@
-  -- 1. create table for superstore
+  --create table for superstore
   
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
@@ -28,24 +28,24 @@ VALUES
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
 
-  -- 2. order prices descending order
+  --order prices descending order
   
 SELECT *
 FROM superstore
 ORDER BY price desc;
 
-  -- 3. average price for superstore table
+  --average price for superstore table
 
 SELECT AVG(price)
 FROM superstore;
 
-  -- 4. sum based on stock quantity of Kitchen Supplies
+  --sum based on stock quantity of Kitchen Supplies
 
 SELECT SUM(stock_quantity), category
 FROM superstore
 WHERE category = 'Kitchen Supplies';
 
-  -- 5. find item in superstore under $100 with rating less than 4.5
+  --find item in superstore under $100 with rating less than 4.5
 
 SELECT *
 FROM superstore
