@@ -27,26 +27,21 @@ VALUES
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
-
-  --order prices descending order
-  
+--1. order prices descending order  
 SELECT *
 FROM superstore
 ORDER BY price desc;
 
-  --average price for superstore table
-
+--2. average price for superstore table
 SELECT AVG(price)
 FROM superstore;
 
-  --sum based on stock quantity of Kitchen Supplies
-
+--3. sum based on stock quantity of Kitchen Supplies
 SELECT SUM(stock_quantity), category
 FROM superstore
 WHERE category = 'Kitchen Supplies';
 
-  --find item in superstore under $100 with rating less than 4.5
-
+--4. find item in superstore under $100 with rating less than 4.5
 SELECT *
 FROM superstore
 WHERE price >100
