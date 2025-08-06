@@ -2,7 +2,6 @@
 
 CREATE TABLE bookstore (id INTEGER PRIMARY KEY, name TEXT, genre TEXT, sold INTEGER, price INTEGER);
 
-
 INSERT INTO bookstore (id, name, genre, sold, price) 
 VALUES 
 (1, 'Hester', 'retelling', 3, 18.30);
@@ -10,11 +9,19 @@ VALUES
 (3, 'Stealing Infiintiy', 'fantasy', 4, 13.25);
 (4, 'Set in Stone', 'historical_fiction', 2, 17.50);
 
---display amount sold
-SELECT SUM(sold) FROM bookstore;
+--1. display amount sold
+SELECT SUM(sold) 
+FROM bookstore
+;
 
---display items ordered by price
-SELECT * FROM bookstore ORDER BY price;
+--2. display items ordered by price
+SELECT * 
+FROM bookstore 
+ORDER BY price
+;
 
---what genre was the most popular
-SELECT genre, MAX(sold) FROM bookstore;
+--3. what genre was the most popular
+SELECT genre
+, MAX(sold) 
+FROM bookstore
+;
