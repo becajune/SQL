@@ -26,15 +26,13 @@ VALUES
 (5, "skating");
 (6, "rowing");
 
---used join to show persons hobbies by their name
-
+--1. used join to show persons hobbies by their name
 SELECT persons.name, hobbies.name
 FROM persons
 JOIN hobbies
 ON persons.id=hobbies.person_id;
 
---used join to only show hobbies of specific person
-
+--2. used join to only show hobbies of specific person
 SELECT persons.name, hobbies.name
 FROM persons
 JOIN hobbies
