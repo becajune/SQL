@@ -57,4 +57,38 @@ VALUES
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
 
---1. 
+--1.show companies with 15+ PTO days *and* healthcare benefits
+SELECT company_name
+FROM fortune_companies
+WHERE paid_time_off_days >=15
+AND healthcare_benefits =1
+;
+
+--2.see industries with an anverage revenue of over 150 billion; put in descending order *alias used*
+SELECT industry
+, ROUND(AVG(revenue),1) as avg_revenue_b
+FROM fortune_companies
+GROUP BY industry
+HAVING avg_revenue_b>=175
+;
+
+--3. show total employes in industries providing 20+ days of PTO with tenure of 5 or more years
+SELECT employees, industry
+FROM fortune_companies
+WHERE paid_time_off_days >=20
+AND avg_employee_tenure >=5
+GROUP BY industry
+ORDER BY employees desc
+;
+
+--4.show companies and industires with healthcare benefits; assign as "motherhood-friendly workplace", "acceptable", or "traditional workplace" based on the maternity leave offered 
+SELECT
+company_name, industry
+,CASE 
+  WHEN maternity_leave_weeks >= 10 THEN 'motherhood-friendly workplace'
+  WHEN maternity_leave_weeks >= 8 THEN 'acceptable'
+  ELSE 'traditional workplace'
+END as motherhood_friendliness_scale
+FROM fortune_companies
+WHERE healthcare_benefits =1
+;
